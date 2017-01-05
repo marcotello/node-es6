@@ -32,14 +32,34 @@ class BankAccount {
   }
 }
 
+class SavingsAccount extends BankAccount {
+  constructor (amount, name) {
+    super(amount, name);
+  }
+  deposit(amount) {
+    super.deposit(amount);
+    console.log(`Congratulations you have saved ${this.amount}`);
+  }
+  withdrawal (amount) {
+    console.log('Sorry, only deposits are permited.');
+  }
+}
+
 var account = new BankAccount(100, 'MARCO-ACCOUNT');
+account.printName();
 account.deposit(100);
 account.withdrawal(10)
 account.printBalance();
-account.printName();
+
 
 var account2 = new BankAccount();
+account2.printName();
 account2.deposit(200);
 account2.withdrawal(150)
 account2.printBalance();
-account2.printName();
+
+var account3 = new SavingsAccount(500, 'Savings-Account');
+account3.printName();
+account3.deposit(200);
+account3.withdrawal(150)
+account3.printBalance();
